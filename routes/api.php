@@ -18,5 +18,9 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::group(['prefix' => 'v1'], function(){
-	Route::get('text', 'TextController@showCurrentText')->name('current_text');
+	Route::get('current-text', 'TextController@showCurrentText')->name('current_text');
+	Route::put('color-cup', 'TextController@changeColorCup')->name('color_cup');
+	Route::put('type-drink', 'TextController@changeTypeDrink')->name('type_drink');
+	Route::put('table-material', 'TextController@changeTableMaterial')->name('table_material');
+	Route::put('temperature', 'TextController@changeTemperature')->name('temperature');
 });

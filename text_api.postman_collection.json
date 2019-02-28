@@ -1,0 +1,156 @@
+{
+	"id": "371a08da-6fa6-3510-29bf-3d2233fc9d18",
+	"name": "text_api",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": null,
+	"order": [
+		"5985f87d-8e80-3ebb-6182-964d38a7dc71",
+		"e968be13-d83a-9d6c-272d-8cf467ec3f29",
+		"14875a40-24a8-45ce-88fe-944506d7e927",
+		"54f09513-f8e0-4fc3-beaf-e8e9fc503213",
+		"35fec543-54ee-45e6-b57f-5682e6d20a35"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "14875a40-24a8-45ce-88fe-944506d7e927",
+			"name": "Change type drink",
+			"url": "{{url}}/type-drink",
+			"description": "",
+			"data": [
+				{
+					"key": "type_drink",
+					"value": "coffee",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "35fec543-54ee-45e6-b57f-5682e6d20a35",
+			"name": "Change temperature",
+			"url": "{{url}}/temperature",
+			"description": "",
+			"data": [
+				{
+					"key": "temperature",
+					"value": "warm",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "54f09513-f8e0-4fc3-beaf-e8e9fc503213",
+			"name": "Change table material",
+			"url": "{{url}}/table-material",
+			"description": "",
+			"data": [
+				{
+					"key": "table_material",
+					"value": "glass",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "5985f87d-8e80-3ebb-6182-964d38a7dc71",
+			"name": "Get current text",
+			"url": "{{url}}/current-text",
+			"description": null,
+			"data": [],
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "e968be13-d83a-9d6c-272d-8cf467ec3f29",
+			"name": "Change color of cup",
+			"url": "{{url}}/color-cup",
+			"description": null,
+			"data": [
+				{
+					"key": "color",
+					"value": "red",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"enabled": true
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		}
+	]
+}

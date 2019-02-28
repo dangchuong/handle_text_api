@@ -8,10 +8,12 @@ use App\Services\ColorCupService;
 use App\Services\TypeDrinkService;
 use App\Services\TableMaterialService;
 use App\Services\TemperatureService;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\V1\BaseController;
 use Exception;
+use App\Exceptions\UnprocessableException;
+use Symfony\Component\HttpFoundation\Response;
 
-class TextController extends Controller
+class TextController extends BaseController
 {
 	/**
 	 * TextService
@@ -51,7 +53,12 @@ class TextController extends Controller
 	/**
 	 * Constructor
 	 * @param TextService
-	 * @param ColorCupService
+     * @param ColorCupService
+     * @param TypeDrinkService
+     * @param TableMaterialService
+	 * @param TemperatureService
+     *
+     * @return void
 	**/
 	public function __construct(
 		TextService $textService,
@@ -68,48 +75,106 @@ class TextController extends Controller
 		$this->temperatureService = $temperatureService;
 	}
 
+    /**
+     * Show current text 
+     *
+     * @return \Illuminate\Http\Response
+    **/
     public function showCurrentText()
     {
     	try {
-    		$this->textService->handle();
+    		$data = $this->textService->handle();
+    		return $this->responseSuccess(trans('messages.successed'), $data);
     	} catch (Exception $e) {
-    		
+    		return $this->responseError($e->getMessage());
     	}
     }
 
-    public function changeColorCup()
+    /**
+     * Change color of cup
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+    **/
+    public function changeColorCup(Request $request)
     {
     	try {
-
+    		$this->colorCupService->handle($request);
+    		return $this->responseSuccess(trans('messages.successed'));
+    	} catch (UnprocessableException $e) {
+    		return $this->responseError(
+    			trans('messages.data_invalid.color_cup'),
+    			[$e->getErrors()],
+    			Response::HTTP_UNPROCESSABLE_ENTITY
+    		);
     	} catch (Exception $e) {
-    		
+    		return $this->responseError($e->getMessage());
     	}
     }
 
-    public function changeTypeDrink()
+    /**
+     * Change type of drink
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+    **/
+    public function changeTypeDrink(Request $request)
     {
     	try {
-    		
+    		$this->typeDrinkService->handle($request);
+    		return $this->responseSuccess(trans('messages.successed'));
+    	} catch (UnprocessableException $e) {
+    		return $this->responseError(
+    			trans('messages.data_invalid.type_drink'),
+    			[$e->getErrors()],
+    			Response::HTTP_UNPROCESSABLE_ENTITY
+    		);
     	} catch (Exception $e) {
-    		
+    		return $this->responseError($e->getMessage());
     	}
     }
 
-    public function changeTableMaterial()
+    /**
+     * Change table material
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+    **/
+    public function changeTableMaterial(Request $request)
     {
     	try {
-    		
+    		$this->tableMaterialService->handle($request);
+    		return $this->responseSuccess(trans('messages.successed'));
+    	} catch (UnprocessableException $e) {
+    		return $this->responseError(
+    			trans('messages.data_invalid.table_material'),
+    			[$e->getErrors()],
+    			Response::HTTP_UNPROCESSABLE_ENTITY
+    		);
     	} catch (Exception $e) {
-    		
+    		return $this->responseError($e->getMessage());
     	}
     }
 
-    public function changeTemperature()
+    /**
+     * Change temperature
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+    **/
+    public function changeTemperature(Request $request)
     {
     	try {
-    		
+    		$this->temperatureService->handle($request);
+    		return $this->responseSuccess(trans('messages.successed'));
+    	} catch (UnprocessableException $e) {
+    		return $this->responseError(
+    			trans('messages.data_invalid.temperature'),
+    			[$e->getErrors()],
+    			Response::HTTP_UNPROCESSABLE_ENTITY
+    		);
     	} catch (Exception $e) {
-    		
+    		return $this->responseError($e->getMessage());
     	}
     }
 }
