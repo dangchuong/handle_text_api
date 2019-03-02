@@ -1,6 +1,6 @@
 HOW TO INSTALL:
 
-1) Clone source code
+1) Clone source code: 
 	git clone git@github.com:dangchuong/handle_text_api.git
 2) composer install
 3) cp .env.example .env
