@@ -15,8 +15,8 @@ DONE
 
 API END POINT URL:
 
-GET http://127.0.0.1:8000/api/v1/current-text
-PUT http://127.0.0.1:8000/api/v1/color-cup
-PUT http://127.0.0.1:8000/api/v1/type-drink
-PUT http://127.0.0.1:8000/api/v1/table-material
-PUT http://127.0.0.1:8000/api/v1/temperature
+* GET http://127.0.0.1:8000/api/v1/current-text
+* PUT http://127.0.0.1:8000/api/v1/color-cup
+* PUT http://127.0.0.1:8000/api/v1/type-drink
+* PUT http://127.0.0.1:8000/api/v1/table-material
+* PUT http://127.0.0.1:8000/api/v1/temperature
