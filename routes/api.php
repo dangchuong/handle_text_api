@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::group(['prefix' => 'v1'], function(){
+	Route::get('current-text', 'TextController@showCurrentText')->name('current_text');
+	Route::put('color-cup', 'TextController@changeColorCup')->name('color_cup');
+	Route::put('type-drink', 'TextController@changeTypeDrink')->name('type_drink');
+	Route::put('table-material', 'TextController@changeTableMaterial')->name('table_material');
+	Route::put('temperature', 'TextController@changeTemperature')->name('temperature');
+});
